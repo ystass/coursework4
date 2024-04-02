@@ -1,4 +1,3 @@
-# def user_contact():
 from src.class_api import FromHHru
 from src.methods import ListVacancies
 
