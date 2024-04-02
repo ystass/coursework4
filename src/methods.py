@@ -29,27 +29,21 @@ class ListVacancies(Methods):
         with open("../data/vacancies.json", "w", encoding="utf8") as f:
             f.write(vacancies_json)
 
-    def add_vacancy(self, user_vac):
+    def add_vacancy(self, name_vac):
         """Метод для добавления вакансий в файл"""
-        list = []
-        list_vacancies = json.dumps(list, ensure_ascii=False)
-        # print(list_vacancies)
-        with open("../data/my_vacancies.json", "w", encoding="utf8") as f:
-            f.write(list_vacancies)
-        with open("../data/my_vacancies.json", "r", encoding="utf8") as f:
-            list_vacancies = json.load(f)
-
         with open("../data/vacancies.json", "r", encoding="utf8") as f:
-            vacancies = json.load(f)
-            for vac in vacancies:
-                if vac["name"] == user_vac:
-                    list_vacancies.append(vac)
-        list_vacancies_json = json.dumps(list_vacancies, ensure_ascii=False)
-        print(list_vacancies_json)
-        with open("../data/my_vacancies.json", "w+", encoding="utf8") as f:
-            f.write(list_vacancies_json)
-        print(list_vacancies)
-        return list_vacancies
+            list_vacancies = json.load(f)
+        with open("../data/my_vacancies.json", "r", encoding="utf8") as f:
+            list = json.load(f)
+        for v in list_vacancies:
+            if name_vac in v["name"]:
+                list.append(v)
+        list_vacancies_add = json.dumps(list, ensure_ascii=False)
+
+        with open("../data/my_vacancies.json", "w", encoding="utf8") as f:
+            f.write(list_vacancies_add)
+        print(list_vacancies_add)
+        return list_vacancies_add
 
     def get_data(self, criterion):
         """Метод получения данных из файла по указанным критериям"""
@@ -65,12 +59,10 @@ class ListVacancies(Methods):
 
     def delete_vacancy(self):
         """Метод удаления данных из файла по указанным критериям"""
-        with open("../data/vacancies.json", "r", encoding="utf8") as f:
-            list_vacancies = json.load(f)
-            for vac in list_vacancies:
-                if vac["area"]["name"] != "Россия":
-                    list_vacancies.remove(vac)
-        return list_vacancies
+        list_vacancies_del = []
+        list = json.dumps(list_vacancies_del, ensure_ascii=False)
+        with open("../data/my_vacancies.json", "w", encoding="utf8") as f:
+            f.write(list)
 
 
 
