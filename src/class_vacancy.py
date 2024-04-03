@@ -1,13 +1,12 @@
 class FromVacancy:
     """Класс для работы с вакансиями"""
-    def __init__(self, name, salary, currency, url, type_work='Нет данных', requirement='Нет данных'):
+    def __init__(self, name, salary, currency, url, requirement):
         self.name = name
         self.salary = salary
         # self.from_ = from_
         # self.to = to
         self.currency = currency
         self.url = url
-        self.type_work = type_work
         self.requirement = requirement
 
     def __repr__(self):

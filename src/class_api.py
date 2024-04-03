@@ -17,18 +17,18 @@ class FromHHru(FromAPI):
     def get_vacancies(self, keyword):
         """Получение списка вакансий в формате json"""
         response = requests.get(self.url_get, params={'text': keyword, 'area': '113', 'per_page': 100})
-        vacancies = response.json()
-        vacancies_json = json.dumps(vacancies['items'], ensure_ascii=False)
-        print(vacancies.keys())
+        vacancies = response.json()['items']
+        #vacancies_json = json.dumps(vacancies['items'], ensure_ascii=False)
+        #print(vacancies.keys())
         print(vacancies)
         # print(response.text)
         #print(vacancies['items'])
-        print(vacancies_json)
-        print(vacancies['found'])
-        print(vacancies['pages'])
-        print(vacancies['page'])
-        print(vacancies['per_page'])
-        return vacancies_json
+        #print(vacancies_json)
+        # print(vacancies['found'])
+        # print(vacancies['pages'])
+        # print(vacancies['page'])
+        # print(vacancies['per_page'])
+        return vacancies
 
     # @staticmethod
     # def save_vacancies(vacancies_json):

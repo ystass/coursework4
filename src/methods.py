@@ -24,9 +24,10 @@ class ListVacancies(Methods):
     #     self.vacancies_json = vacancies_json
 
     @staticmethod
-    def save_vacancies(vacancies_json):
+    def save_vacancies(vacancies):
         """Запись списка вакансий в файл"""
         with open("../data/vacancies.json", "w", encoding="utf8") as f:
+            vacancies_json = json.dumps(vacancies, ensure_ascii=False)
             f.write(vacancies_json)
 
     def add_vacancy(self, name_vac):
