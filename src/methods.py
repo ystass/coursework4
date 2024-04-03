@@ -50,12 +50,15 @@ class ListVacancies(Methods):
         """Метод получения данных из файла по указанным критериям"""
         with open("../data/vacancies.json", "r", encoding="utf8") as f:
             vacancies = json.load(f)
-            #print(vacancies)
+            print(vacancies)
             criterion_vac = []
             for vac in vacancies:
-                if criterion in vac["snippet"]["responsibility"]:
-                    criterion_vac.append(vac)
-        print(criterion_vac)
+                if not vac["snippet"]["requirement"]:
+                    continue
+                else:
+                    if criterion in vac["snippet"]["requirement"]:
+                        criterion_vac.append(vac)
+        print('DEBUG', criterion_vac)
         return criterion_vac
 
     def delete_vacancy(self):

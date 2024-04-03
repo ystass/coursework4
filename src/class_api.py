@@ -20,7 +20,7 @@ class FromHHru(FromAPI):
         vacancies = response.json()['items']
         #vacancies_json = json.dumps(vacancies['items'], ensure_ascii=False)
         #print(vacancies.keys())
-        print(vacancies)
+        print(len(vacancies))
         # print(response.text)
         #print(vacancies['items'])
         #print(vacancies_json)

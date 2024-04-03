@@ -8,8 +8,8 @@ hh = FromHHru()
 vacancies = hh.get_vacancies(user_vacancy)
 
 
-# fv = ListVacancies()
-# fv1 = fv.save_vacancies(vacancies)
+fv = ListVacancies()
+fv1 = fv.save_vacancies(vacancies)
 #
 # name_vac = input('Введите название вакансии: \n')
 # fv3 = fv.add_vacancy(name_vac)
@@ -18,5 +18,5 @@ vacancies = hh.get_vacancies(user_vacancy)
 # if name_exit == 'да':
 #     fv4 = fv.delete_vacancy()
 # print('Выбранные вакансии в my_vacancies.json')
-# name_criterion = input('Введите критерий для отбора вакансий: \n')
-# fv4 = fv.get_data(name_criterion)
+name_criterion = input('Введите критерий для отбора вакансий: \n')
+fv4 = fv.get_data(name_criterion)

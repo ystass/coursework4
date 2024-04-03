@@ -1,6 +1,6 @@
 class FromVacancy:
     """Класс для работы с вакансиями"""
-    def __init__(self, name, salary, currency, url, requirement):
+    def __init__(self, name, salary, currency, url, requirement='Информация отсутствует'):
         self.name = name
         self.salary = salary
         # self.from_ = from_
@@ -10,7 +10,10 @@ class FromVacancy:
         self.requirement = requirement
 
     def __repr__(self):
-        return f'{self.name}, {self.salary} {self.currency}, {self.type_work}, {self.requirement}, <{self.url}>'
+        return (f'Название вакансии: {self.name}\n'
+                f'Зарплата: {self.salary} {self.currency}\n'
+                f'Требования: {self.requirement}\n'
+                f'Ссылка на вакансию: <{self.url}>\n')
 
     def __gt__(self, other):
         """Метод сравнения вакансий между собой по зарплате и валидации данных по зарплате"""
@@ -29,6 +32,7 @@ class FromVacancy:
             else:
                 return other
         return 'Зарплата не указана'
+
 
 
 v = FromVacancy
