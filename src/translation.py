@@ -11,12 +11,12 @@ def vac_user():
         name = vac["name"]
         if not vac["salary"]:
             salary = 0
-        else:
-            if vac["salary"]["from"] is None and vac["salary"]["to"] is None:
-                salary = 0
-            elif vac["salary"]["from"] is None and vac["salary"]["to"] is not None:
+            currency = " "
+        elif vac["salary"]["from"] is None and vac["salary"]["to"] is None:
+            salary = 0
+        elif vac["salary"]["from"] is None and vac["salary"]["to"] is not None:
                 salary = vac["salary"]["to"]
-            elif vac["salary"]["from"] is not None and vac["salary"]["to"] is None:
+        elif vac["salary"]["from"] is not None and vac["salary"]["to"] is None:
                 salary = vac["salary"]["from"]
         if vac["salary"]["currency"]:
             currency = vac["salary"]["currency"]
