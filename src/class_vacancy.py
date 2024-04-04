@@ -33,6 +33,3 @@ class FromVacancy:
                 return other
         return 'Зарплата не указана'
 
-
-
-v = FromVacancy

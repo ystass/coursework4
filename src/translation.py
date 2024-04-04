@@ -1,8 +1,8 @@
 from src.class_vacancy import FromVacancy
-from src.main import vacancies
 import json
 
 def vac_user():
+    """Приводим полученные данные к данным для вывода"""
     with open("../data/vacancies.json", "r", encoding="utf8") as f:
         vacancies = json.load(f)
     global salary, currency, url, requirement
@@ -32,6 +32,3 @@ def vac_user():
     print(user_vac)
 
     return user_vac
-
-
-vac_user()

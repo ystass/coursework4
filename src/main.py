@@ -1,7 +1,5 @@
 from src.class_api import FromHHru
-from src.class_vacancy import FromVacancy
 from src.methods import ListVacancies
-import json
 
 from src.sorting import sorting
 
@@ -24,5 +22,3 @@ sorting(n)
 # name_exit = input('Завершим и очистим файл вакансий да/нет : \n')
 # if name_exit == 'да':
 #     fv4 = fv.delete_vacancy()
-# print('Выбранные вакансии в my_vacancies.json')
-

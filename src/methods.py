@@ -1,7 +1,5 @@
 from abc import ABC, abstractmethod
 import json
-from src.class_api import FromHHru
-
 
 class Methods(ABC):
     """Абстрактный класс"""
@@ -20,8 +18,6 @@ class Methods(ABC):
 
 
 class ListVacancies(Methods):
-    # def __init__(self, vacancies_json="vacancies.json"):
-    #     self.vacancies_json = vacancies_json
 
     @staticmethod
     def save_vacancies(vacancies):
@@ -50,7 +46,6 @@ class ListVacancies(Methods):
         """Метод получения данных из файла по указанным критериям"""
         with open("../data/vacancies.json", "r", encoding="utf8") as f:
             vacancies = json.load(f)
-            #print(vacancies)
             criterion_vac = []
             for vac in vacancies:
                 if not vac["snippet"]["requirement"]:
@@ -68,12 +63,3 @@ class ListVacancies(Methods):
         with open("../data/my_vacancies.json", "w", encoding="utf8") as f:
             f.write(list)
 
-
-
-# v = lv.delete_vacancy()
-# v1 = lv.get_data("принимать")
-#v2 = lv.add_vacancy("Диспетчер чатов (в Яндекс)")
-# print(h)
-# print(h1)
-# lv = ListVacancies()
-# v3 = lv.save_vacancies(vacancies_json)
