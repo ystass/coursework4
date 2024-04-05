@@ -1,7 +1,9 @@
 from abc import ABC, abstractmethod
 import json
 
+
 class Methods(ABC):
+
     """Абстрактный класс"""
 
     @abstractmethod
@@ -21,13 +23,17 @@ class ListVacancies(Methods):
 
     @staticmethod
     def save_vacancies(vacancies):
+
         """Запись списка вакансий в файл"""
+
         with open("../data/vacancies.json", "w", encoding="utf8") as f:
             vacancies_json = json.dumps(vacancies, ensure_ascii=False)
             f.write(vacancies_json)
 
     def add_vacancy(self, name_vac):
+
         """Метод для добавления вакансий в файл"""
+
         with open("../data/vacancies.json", "r", encoding="utf8") as f:
             list_vacancies = json.load(f)
         with open("../data/my_vacancies.json", "r", encoding="utf8") as f:
@@ -39,11 +45,12 @@ class ListVacancies(Methods):
 
         with open("../data/my_vacancies.json", "w", encoding="utf8") as f:
             f.write(list_vacancies_add)
-        print(list_vacancies_add)
         return list_vacancies_add
 
     def get_data(self, criterion):
+
         """Метод получения данных из файла по указанным критериям"""
+
         with open("../data/vacancies.json", "r", encoding="utf8") as f:
             vacancies = json.load(f)
             criterion_vac = []
@@ -53,13 +60,13 @@ class ListVacancies(Methods):
                 else:
                     if criterion in vac["snippet"]["requirement"]:
                         criterion_vac.append(vac)
-        print(criterion_vac)
         return criterion_vac
 
     def delete_vacancy(self):
-        """Метод удаления данных из файла по указанным критериям"""
+
+        """Метод удаления данных из файла"""
+
         list_vacancies_del = []
         list = json.dumps(list_vacancies_del, ensure_ascii=False)
         with open("../data/my_vacancies.json", "w", encoding="utf8") as f:
             f.write(list)
-
